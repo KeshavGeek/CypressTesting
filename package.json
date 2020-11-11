@@ -16,6 +16,26 @@
     "type": "git",
     "url": "https://github.com/KeshavGeek/CypressTesting.git"
   },
+  "config": {
+	"commitizen": {
+		"path": "cz-conventional-changelog"
+	}
+  },
+  "husky": {
+	"hooks": {
+		"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+			"pre-commit": "lint-staged"
+	}
+  },
+  "lint-staged": {
+	"src/**/*.mdx": [
+		"prettier --write"
+	],
+	"src/**/*.js": [
+		"prettier --write",
+		"eslint --fix"
+	]
+  },
   "dependencies": {
     "@angular/animations": "~10.1.5",
     "@angular/common": "~10.1.5",
